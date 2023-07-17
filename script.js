@@ -1,21 +1,20 @@
-//var correct = 0
-//var incorrect = 0 
+
 
 
 //function startCountdown(seconds) {
-    //let counter = seconds;
+  //  let counter = seconds;
     
-    //const interval = setInterval() => {
+    //const interval = setInterval(() => {
     //console.log(counter);
-    //counter--
+    //counter--;
     
     //if (counter < 0) {
       //  clearInterval(interval);
-        //console.log("Complete!")
+        //console.log("Complete!");
         //startCountdown(60);
-   // }
-    //}, 1000;
-    //};
+    //}
+    //}, 1000);
+   
     
     var score = 0;
     var questions = [
@@ -25,7 +24,7 @@
         },
         {
             prompt: "What do we use to allow CSS amd JavaScript to select and access specific elements?\n(a) Class\n\ (b) src\n\ (c) alt\n(d) Semantic tags",
-            amswer: "a"
+            answer: "a"
         },
         {
             prompt: "which of the following formats are used for highligting text? \n(a) sub\n\ (b) mark\n (c) del\n\ (d)em",
@@ -41,7 +40,7 @@
         },
     ]
     
-    for(var i=0; 1 < questions.length; i++){
+    for(var i=0; i < questions.length; i++){
      var response = window.prompt(questions[i].prompt)
      if(response == questions [i].answer){
        score++;
@@ -50,7 +49,10 @@
             alert("Incorrect!");
         }
     }
-    alert("Congratulations! you got" + score + "/" + question.lengths);
+    alert("Congratulations! you got" + score + "/" + question.length);
+   
+    startCountdown();
+   
     //var startQuiz = function() {
         //
     //}
