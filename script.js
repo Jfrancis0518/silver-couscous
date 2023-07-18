@@ -1,24 +1,4 @@
-var timerEl = document.getElementById('countdown');
-var mainEl = document.getElementById('main')
 
-//timer
-function countdown () {
-    var timeLeft = 60;
-
-    var timeInterval = setInterval(function () {
-        if (timeLeft >1) {
-            timerEl.textContent = timeLeft + 'seconds remaining';
-            timeLeft--;
-        } else if (timeLeft === 1) {
-            timerEl.textContent = timeLeft + 'second remaining';
-            time left--;
-        } else if {
-            timerEl.textcontent = '';
-            displayMessage();
-        }
-
-    }, 1000);
-}
 
     // questions for the quiz 
     var score = 0;
@@ -56,7 +36,7 @@ function countdown () {
     }
     alert("Congratulations! you got" + score + "/" + questions.length);
    
-    Countdown();
+    //countdown();
    
     //var startQuiz = function() {
         //
