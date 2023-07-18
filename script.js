@@ -1,21 +1,26 @@
+var timerEl = document.getElementById('countdown');
+var mainEl = document.getElementById('main')
 
+//timer
+function countdown () {
+    var timeLeft = 60;
 
+    var timeInterval = setInterval(function () {
+        if (timeLeft >1) {
+            timerEl.textContent = timeLeft + 'seconds remaining';
+            timeLeft--;
+        } else if (timeLeft === 1) {
+            timerEl.textContent = timeLeft + 'second remaining';
+            time left--;
+        } else if {
+            timerEl.textcontent = '';
+            displayMessage();
+        }
 
-//function startCountdown(seconds) {
-  //  let counter = seconds;
-    
-    //const interval = setInterval(() => {
-    //console.log(counter);
-    //counter--;
-    
-    //if (counter < 0) {
-      //  clearInterval(interval);
-        //console.log("Complete!");
-        //startCountdown(60);
-    //}
-    //}, 1000);
-   
-    
+    }, 1000);
+}
+
+    // questions for the quiz 
     var score = 0;
     var questions = [
         {
@@ -49,9 +54,9 @@
             alert("Incorrect!");
         }
     }
-    alert("Congratulations! you got" + score + "/" + question.length);
+    alert("Congratulations! you got" + score + "/" + questions.length);
    
-    startCountdown();
+    Countdown();
    
     //var startQuiz = function() {
         //
