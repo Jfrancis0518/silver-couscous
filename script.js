@@ -41,3 +41,9 @@
     //var startQuiz = function() {
         //
     //}
+
+    var startQuiz = function startButtonClicked() {
+        console.log('Start button Clicked');
+    }
+
+    const startButtin.addEventListener('click', startButtonClicked);
