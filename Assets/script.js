@@ -30,7 +30,7 @@
         }
     ];
     
-    for(var i=0; i < questions.length; i++){
+    /*for(var i=0; i < questions.length; i++){
      var response = window.prompt(questions[i].prompt)
      if(response == questions [i].answer){
        score++;
@@ -51,4 +51,27 @@
         console.log('Start button Clicked');
     }
 
-    const startButtin.addEventListener('click', startButtonClicked);
+    const startButtin.addEventListener('click', startButtonClicked);*/
+
+    var quiz = document.getElementById('quiz-window');
+    var startWindow = document.getElementById("start-window");
+    var startButton = document.getElementById("start-button");
+    var playAgainButton = document.getElementById("play-again-button");
+    var homeButton = document.getElementById("home-button");
+    var questionWindow = document.getElementById('questions');
+    var answersWindow = document.getElementById('answers');
+    var feedbackWindow = document.getElementById('feedback');
+    var timerEl = document.getElementById("time-remaining");
+    var resultWindow = document.getElementById("result-window");
+    var scoreWindow = document.getElementById('final-score');
+    var scoreForm = document.getElementById("score-form");
+    var initialsContainer = document.getElementById('initials');
+    var viewHighscoresButton = document.getElementById('view-highscores');
+    var highscoresList = document.getElementById('highscores-list');
+    var highscoresWindow = document.getElementById('highscores-container');
+
+    var currentQuestionsIndex = 0;
+    var timeRemaining = 75;
+    var scores = [];
+
+    highscoresWindow.style.display = 'none';
