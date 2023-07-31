@@ -6,41 +6,20 @@
     <title>Coding Quiz</title>
 </head>
 <body>
-    <div class="container">
+    <div class="container" id="start-container">
         <h1 class="quiz">Coding Quiz</h1>
-        <h2 id="countdown"></h2>
+        <button id="start-button">START</button>
     </div>
+    <h2 id="countdown"></h2>
     <div id="quiz-container"></div>
-    <div id="result-container"></div>
+    <div id="result-container">
+        <input type="text" id="initials">
+        <button id="submit">Submit</button>
+    </div>
 
 
-    <button id="start-button">START</button>
+    
 
-    <script>
-        var startButton = document.getElementById('start-button');
-        var countdownEl = document.getElementById('countdown');
-
-        function countdown() {
-            var timeLeft = 60;
-
-            var countdownInterval = setInterval(function() {
-                if (timeLeft > 1) {
-                    countdownEl.textContent = timeLeft + ' seconds remaining';
-                    timeLeft--;
-                } else if (timeLeft === 1) {
-                    countdownEl.textContent = timeLeft + ' second remaining';
-                    timeLeft--;
-                } else {
-                    countdownEl.textContent = 'Time is up!';
-                    clearInterval(countdownInterval);
-                }
-            }, 1000);
-        }
-
-        startButton.addEventListener('click', function() {
-            countdown();
-        });
-    </script>
     <script src="./Assets/script.js"></script>
 </body>
 </html>
