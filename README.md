@@ -4,3 +4,4 @@
 # Wins: being able to actually create a fairly functions quiz
 # complications: I am still struggling to get all syntax errors removed. 
 # technology used: MDN Docs, Tutoring, Google, W3schools
+![Alt text](image.png)
