@@ -19,7 +19,7 @@ var questions = [
   },
   {
     question: "Which of the following should you add to your ReadMe?",
-    options: [ "project name", "project description", "what you learned", "all of the above?"],
+    options: [ "project name", "project description", "what you learned", "all of the above"],
     answer: "All of the above"
   },
   {
@@ -95,6 +95,9 @@ function answerCheck(){
   else{
     timeLeft = timeLeft - 5;
     currentQuestionIndex++;
+    clearInterval(timeInterval);
+    countdown();
+  }
 
     if(currentQuestionIndex === questions.length){
       endQuiz();
@@ -103,7 +106,7 @@ function answerCheck(){
       startButtonClicked();
     }
   }
-}
+
 
 function startButtonClicked() {
   document.getElementById("quiz-container").textContent = "";
@@ -157,7 +160,7 @@ function endQuiz() {
 }
 
 // // 8.---------------------------------------------------------------
-function saveScore(event) {
+/*function saveScore(event) {
   // event.preventDefault();
 
   initialsContainer.value.toUpperCase();
@@ -172,7 +175,48 @@ function saveScore(event) {
 
   var scoreForm = document.getElementById("score-form");
   scoreForm.style.display = "none";
+}*/
+// ... Your existing code ...
+
+function saveScore(event) {
+  event.preventDefault();
+
+  var initials = initialsContainer.value.toUpperCase();
+  var scoreData = localStorage.getItem("highscores");
+  var highscores = scoreData ? JSON.parse(scoreData) : [];
+
+  highscores.push({ initials: initials, score: score });
+
+  localStorage.setItem("highscores", JSON.stringify(highscores));
+
+  // Clear the initials input after saving the score
+  initialsContainer.value = "";
+
+  // You can optionally display the highscores immediately after saving
+  printHighScores();
 }
+
+function printHighScores() {
+  // ... Your existing code ...
+
+  var scoreData = localStorage.getItem("highscores");
+  var highscores = scoreData ? JSON.parse(scoreData) : [];
+
+  highscoresList.innerHTML = "";
+
+  highscores.forEach(function (scoreItem) {
+    var listItem = document.createElement("li");
+    listItem.textContent = scoreItem.initials + ": " + scoreItem.score;
+    highscoresList.appendChild(listItem);
+  });
+
+  // ... Your existing code ...
+}
+
+// event listener to the submit button to save the score
+document.getElementById("submit").addEventListener("click", saveScore);
+
+// ... Your existing code ...
 
 
 
