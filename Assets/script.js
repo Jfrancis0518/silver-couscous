@@ -181,7 +181,7 @@ function endQuiz() {
   var scoreForm = document.getElementById("score-form");
   scoreForm.style.display = "none";
 }*/
-// ... Your existing code ...
+
 
 function saveScore(event) {
   event.preventDefault();
