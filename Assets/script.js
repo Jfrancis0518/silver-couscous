@@ -192,12 +192,12 @@ function saveScore(event) {
   // Clear the initials input after saving the score
   initialsContainer.value = "";
 
-  // You can optionally display the highscores immediately after saving
+  
   printHighScores();
 }
 
 function printHighScores() {
-  // ... Your existing code ...
+}
 
   var scoreData = localStorage.getItem("highscores");
   var highscores = scoreData ? JSON.parse(scoreData) : [];
@@ -210,31 +210,34 @@ function printHighScores() {
     highscoresList.appendChild(listItem);
   });
 
-  // ... Your existing code ...
-}
+ 
+
 
 // event listener to the submit button to save the score
 document.getElementById("submit").addEventListener("click", saveScore);
-
-// ... Your existing code ...
-
-
-
 
 
 // Function to print high scores
 function printHighScores() {
   startButton.style.display = 'none';
-  highscoresWindow.style.display = 'block';
+ // highscoresWindow.style.display = 'block';
   highscoresList.innerHTML = '';
 
   // Retrieve scores from localStorage
-  var scoreData = localStorage.getItem("Score");
+  var scoreData = localStorage.getItem("highscores");
+  var highscores = scoreData ? JSON.parse(scoreData) : [];
 
   // Display the high scores
   if (scoreData) {
     var scores = JSON.parse(scoreData);
     var uniqueScores = [];
+
+    highscores.forEach(function (scoreItem) {
+      var listItem = document.createElement('li');
+      listItem.textContent = scoreItem.initials + ': ' + scoreItem.score;
+      highscoresList.appendChild(listItem);
+    });
+  }
 
     for (var i = 0; i < scores.length; i++) {
       var scoreItem = scores[i].initials + ' - ' + scores[i].score;
@@ -242,13 +245,27 @@ function printHighScores() {
       uniqueScores[scoreItem] = true;
     }
 
-    Object.keys(uniqueScores).forEach(function (score) {
+    /*Object.keys(uniqueScores).forEach(function (score) {
       var listItem = document.createElement('li');
       listItem.textContent = scoreItem;
       highscoresList.appendChild(scoreItem);
+    });*/
+
+    Object.keys(uniqueScores).forEach(function (score) {
+      var listItem = document.createElement('li');
+      listItem.textContent = score;
+      highscoresList.appendChild(listItem);
     });
+
+    viewHighscoresButton.addEventListener('click', printHighScores);
   }
-  homeButton.addEventListener("click", function () {
+  document.addEventListener("DOMContentLoaded", function () {
+    startButton.addEventListener('click', function () {
+      countdown();
+      startButtonClicked();
+    });
+    
+    //startButton.addEventListener("click", startGame);
     startWindow.style.display = "block";
     startButton.style.display = 'block';
     quiz.style.display = "none";
@@ -260,7 +277,7 @@ function printHighScores() {
     currentQuestionIndex = 0;
     score = 0;
   });
-}
+
 
 
 
@@ -288,5 +305,8 @@ startButton.addEventListener('click', function () {
 });
 
 //startButton.addEventListener("click", startGame);
-//viewHighscoresButton.addEventListener('click', printHighScores);
-
+startButton.addEventListener('click', function () {
+  countdown();
+  startButtonClicked();
+});
+viewHighscoresButton.addEventListener('click', printHighScores);
