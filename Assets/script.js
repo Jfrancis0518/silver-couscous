@@ -155,8 +155,13 @@ else {
 // // 7.----------------------------------------------------------------
 function endQuiz() {
   clearInterval(timeInterval);
-  document.getElementById("quiz-container").setAttribute("style", "display:none;")
-  document.getElementById("result-container").setAttribute("style", "display:block;")
+  //document.getElementById("quiz-container").setAttribute("style", "display:none;")
+  //document.getElementById("result-container").setAttribute("style", "display:block;")
+  document.getElementById("quiz-container").style.display = "none";
+  document.getElementById("result-container").style.display = "block";
+  document.getElementById("highscores-container").style.display = "block"; // Show the highscores container
+
+  printHighScores();
 }
 
 // // 8.---------------------------------------------------------------
@@ -197,6 +202,8 @@ function saveScore(event) {
 }
 
 function printHighScores() {
+  var highscoresList = document.getElementById("highscores-list");
+  highscoresList.innerHTML = "";
 }
 
   var scoreData = localStorage.getItem("highscores");
