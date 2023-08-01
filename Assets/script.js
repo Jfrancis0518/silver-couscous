@@ -202,7 +202,7 @@ function saveScore(event) {
 }
 
 function printHighScores() {
-  var highscoresList = document.getElementById("highscores-list");
+   var highscoresList = document.getElementById("highscores-list");
   highscoresList.innerHTML = "";
 }
 
